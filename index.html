@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel S. Mariano - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">GSM</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="typing-container">
+                <h1 class="typing-text" id="typingText"></h1>
+                <span class="cursor"></span>
+            </div>
+            <p class="hero-subtitle">Full Stack Developer | Cybersecurity Enthusiast | Problem Solver</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+            <a href="#skills" class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <!-- Programming Languages -->
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML/CSS</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Technologies -->
+                <div class="skill-category">
+                    <h3>Web Technologies</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">React</span>
+                            <span class="skill-percentage">65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Node.js</span>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Databases</span>
+                            <span class="skill-percentage">68%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 68%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Skills -->
+                <div class="skill-category">
+                    <h3>Other Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Cybersecurity Basics</span>
+                            <span class="skill-percentage">72%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 72%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Data Analytics</span>
+                            <span class="skill-percentage">68%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 68%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Git & Version Control</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-timeline">
+                <!-- OJT Experience -->
+                <div class="experience-item">
+                    <div class="experience-date">2025 - 2026</div>
+                    <div class="experience-content">
+                        <h3>On-The-Job Training (OJT)</h3>
+                        <p class="company">Nephila Web Technology Inc.</p>
+                        <ul class="experience-details">
+                            <li>Developed and maintained web applications using modern tech stacks</li>
+                            <li>Collaborated with senior developers on full-stack projects</li>
+                            <li>Implemented responsive designs and optimized performance</li>
+                            <li>Gained hands-on experience with agile development practices</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Freelance Projects -->
+                <div class="experience-item">
+                    <div class="experience-date">2024 - Present</div>
+                    <div class="experience-content">
+                        <h3>Freelance Web Developer</h3>
+                        <p class="company">Self-Employed</p>
+                        <ul class="experience-details">
+                            <li>Created custom web solutions for various clients</li>
+                            <li>Designed and developed interactive applications</li>
+                            <li>Managed project timelines and client communications</li>
+                            <li>Continuously learned and adapted to client requirements</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Academic Projects -->
+                <div class="experience-item">
+                    <div class="experience-date">2022 - 2026</div>
+                    <div class="experience-content">
+                        <h3>Academic Projects & Research</h3>
+                        <p class="company">University Projects</p>
+                        <ul class="experience-details">
+                            <li>Developed Arnis Arena game application</li>
+                            <li>Created Haunted Enigma interactive experience</li>
+                            <li>Built Solar System educational application</li>
+                            <li>Participated in cybersecurity and data analytics seminars</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-carousel" id="projectsCarousel">
+                <!-- Arnis Arena -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/arnis-arena.jpg" alt="Arnis Arena">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Arnis Arena Game</h3>
+                        <p>An interactive game application built with JavaScript and Canvas API.</p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Game Dev</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Haunted Enigma -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/haunted-enigma.jpg" alt="Haunted Enigma">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Haunted Enigma</h3>
+                        <p>An atmospheric interactive experience with puzzle-solving elements.</p>
+                        <div class="project-tags">
+                            <span class="tag">Interactive</span>
+                            <span class="tag">Puzzle</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solar System -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/images/solar-system.jpg" alt="Solar System App">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Solar System App</h3>
+                        <p>Educational application showcasing planets and astronomical data.</p>
+                        <div class="project-tags">
+                            <span class="tag">Education</span>
+                            <span class="tag">Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">Education & Certifications</h2>
+            <div class="education-grid">
+                <!-- Degree -->
+                <div class="education-card degree-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Bachelor of Science in Information Technology</h3>
+                    <p class="graduation-year">Graduating 2026</p>
+                    <p class="institution">University / College Name</p>
+                </div>
+
+                <!-- Certifications -->
+                <div class="education-card cert-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Cybersecurity Fundamentals</h3>
+                    <p class="cert-issuer">Seminar / Course</p>
+                    <p class="cert-date">2025</p>
+                </div>
+
+                <div class="education-card cert-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Python Programming Mastery</h3>
+                    <p class="cert-issuer">Seminar / Course</p>
+                    <p class="cert-date">2024</p>
+                </div>
+
+                <div class="education-card cert-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Data Analytics Essentials</h3>
+                    <p class="cert-issuer">Seminar / Course</p>
+                    <p class="cert-date">2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Testimonials</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Gabriel is an exceptional developer with a keen eye for detail and problem-solving skills."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/images/avatar1.jpg" alt="Professor">
+                        <div>
+                            <p class="author-name">Prof. Name</p>
+                            <p class="author-title">University Professor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Working with Gabriel during his OJT was a pleasure. He brings dedication and creativity to every project."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/images/avatar2.jpg" alt="Supervisor">
+                        <div>
+                            <p class="author-name">Supervisor Name</p>
+                            <p class="author-title">Nephila Web Technology Inc.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">"Outstanding teamwork and technical expertise. Gabriel consistently delivers high-quality results."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="assets/images/avatar3.jpg" alt="Team Member">
+                        <div>
+                            <p class="author-name">Team Lead Name</p>
+                            <p class="author-title">Project Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:your.email@example.com">your.email@example.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <a href="tel:+1234567890">+1 (234) 567-890</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>City, Country</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Resume Download -->
+            <div class="resume-section">
+                <h3>Download My Resume</h3>
+                <a href="assets/resume/Gabriel_Mariano_Resume.pdf" class="btn btn-primary" download>
+                    <i class="fas fa-download"></i> Download PDF
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://github.com/Gaxz-hub" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            <p>&copy; 2026 Gabriel S. Mariano. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
