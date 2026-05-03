@@ -4,6 +4,7 @@
 // - Dark/Light theme toggle with persistence via localStorage
 // - Animated skill progress bars that fill when the Skills section scrolls into view
 // - Projects carousel controls: prev/next buttons, keyboard arrows, and touch swipe support
+// - Smooth fade-in animations for sections and cards (accessible, respects prefers-reduced-motion)
 
 document.addEventListener('DOMContentLoaded', () => {
   /* ---------- Typing animation ---------- */
@@ -223,6 +224,49 @@ document.addEventListener('DOMContentLoaded', () => {
       window.requestAnimationFrame(updateButtons);
     });
 
+  })();
+
+  /* ---------- Smooth fade-in for sections and cards ---------- */
+  (function fadeInOnScroll() {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // elements to animate — pick semantic groups
+    const selectors = [
+      'section',
+      '.project-card',
+      '.skill-category',
+      '.experience-item',
+      '.education-card',
+      '.testimonial-card',
+      '.contact-form'
+    ];
+
+    const nodes = selectors.flatMap(sel => Array.from(document.querySelectorAll(sel)));
+    // dedupe
+    const elems = Array.from(new Set(nodes));
+    if (!elems.length) return;
+
+    // add the helper class if not present
+    elems.forEach(el => {
+      if (!el.classList.contains('fade-in')) el.classList.add('fade-in');
+    });
+
+    if (prefersReduced) {
+      // immediately reveal all
+      elems.forEach(el => el.classList.add('in-view'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // can stagger children for nicer feel
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    elems.forEach(el => observer.observe(el));
   })();
 
 });
