@@ -2,6 +2,7 @@
 // Features:
 // - Hero typing animation for "Gabriel S. Mariano"
 // - Dark/Light theme toggle with persistence via localStorage
+// - Animated skill progress bars that fill when the Skills section scrolls into view
 
 document.addEventListener('DOMContentLoaded', () => {
   /* ---------- Typing animation ---------- */
@@ -59,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('theme', theme);
     } catch (e) {
       // ignore if storage is unavailable
-      // console.warn('Could not persist theme preference', e);
     }
   }
 
@@ -90,5 +90,53 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  /* ---------- Animated skill progress bars on scroll ---------- */
+  (function progressBarsOnScroll() {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const fills = Array.from(document.querySelectorAll('.progress-fill'));
+    if (!fills.length) return;
+
+    // Read target widths from inline style or data attribute, then reset width to 0
+    fills.forEach((el) => {
+      const inline = el.style.width && el.style.width.trim();
+      const dataAttr = el.getAttribute('data-target');
+      const target = dataAttr || inline || '';
+      // store the target on the element for later
+      el.dataset.targetWidth = target || '0%';
+      // initialize to zero for animation (unless reduced motion)
+      if (!prefersReduced) {
+        el.style.width = '0%';
+      } else {
+        // if reduced motion, set immediately
+        el.style.width = el.dataset.targetWidth;
+      }
+    });
+
+    if (prefersReduced) return; // don't animate if user prefers reduced motion
+
+    const skillsSection = document.getElementById('skills');
+    if (!skillsSection) return;
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // animate fills with a stagger
+          fills.forEach((el, i) => {
+            const target = el.dataset.targetWidth || '0%';
+            // stagger each fill a bit
+            setTimeout(() => {
+              // add animate class for transition (CSS handles transition)
+              el.classList.add('animate');
+              el.style.width = target;
+            }, i * 120);
+          });
+          obs.unobserve(skillsSection);
+        }
+      });
+    }, { threshold: 0.18 });
+
+    observer.observe(skillsSection);
+  })();
 
 });
