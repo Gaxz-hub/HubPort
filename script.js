@@ -3,6 +3,7 @@
 // - Hero typing animation for "Gabriel S. Mariano"
 // - Dark/Light theme toggle with persistence via localStorage
 // - Animated skill progress bars that fill when the Skills section scrolls into view
+// - Projects carousel controls: prev/next buttons, keyboard arrows, and touch swipe support
 
 document.addEventListener('DOMContentLoaded', () => {
   /* ---------- Typing animation ---------- */
@@ -137,6 +138,91 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.18 });
 
     observer.observe(skillsSection);
+  })();
+
+  /* ---------- Projects carousel controls (prev/next, keyboard, swipe) ---------- */
+  (function projectsCarouselControls() {
+    const carousel = document.getElementById('projectsCarousel');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    if (!carousel) return;
+
+    // helper to compute scroll amount (card width + gap)
+    function getScrollAmount() {
+      const card = carousel.querySelector('.project-card');
+      const gap = 18; // should match CSS grid gap
+      const cardWidth = card ? card.getBoundingClientRect().width : carousel.clientWidth;
+      return Math.round(cardWidth + gap);
+    }
+
+    function scrollByAmount(amount) {
+      carousel.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => scrollByAmount(-getScrollAmount()));
+    if (nextBtn) nextBtn.addEventListener('click', () => scrollByAmount(getScrollAmount()));
+
+    // keyboard navigation (left/right) when carousel is focused or in view
+    document.addEventListener('keydown', (e) => {
+      // don't interfere with typing in inputs or textareas
+      const active = document.activeElement;
+      if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable)) return;
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        scrollByAmount(-getScrollAmount());
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        scrollByAmount(getScrollAmount());
+      }
+    });
+
+    // Touch / swipe support for mobile
+    let startX = 0;
+    let isDragging = false;
+
+    carousel.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches.length === 1) {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+      }
+    }, { passive: true });
+
+    carousel.addEventListener('touchmove', (e) => {
+      // allow native scrolling horizontally
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      const endX = (e.changedTouches && e.changedTouches[0] && e.changedTouches[0].clientX) || 0;
+      const diff = startX - endX;
+      const threshold = 40; // px to qualify as a swipe
+      if (Math.abs(diff) > threshold) {
+        if (diff > 0) {
+          // swipe left -> next
+          scrollByAmount(getScrollAmount());
+        } else {
+          // swipe right -> prev
+          scrollByAmount(-getScrollAmount());
+        }
+      }
+      isDragging = false;
+    }, { passive: true });
+
+    // Optional: update aria-disabled on buttons based on scroll position
+    function updateButtons() {
+      if (!prevBtn || !nextBtn) return;
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      prevBtn.disabled = carousel.scrollLeft <= 4;
+      nextBtn.disabled = carousel.scrollLeft >= maxScroll - 4;
+    }
+
+    // initial update and on scroll
+    updateButtons();
+    carousel.addEventListener('scroll', () => {
+      // throttle using requestAnimationFrame
+      window.requestAnimationFrame(updateButtons);
+    });
+
   })();
 
 });
