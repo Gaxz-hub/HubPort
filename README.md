@@ -181,8 +181,8 @@ Feel free to fork this repository and customize it for your own portfolio!
 ## 📧 Contact
 
 Have questions? Feel free to reach out:
-- Email: contact@gaxz-hub.dev
-- GitHub: [Gaxz-hub](https://github.com/Gaxz-hub)
+- Email:
+- GitHub: 
 
 ---
 
